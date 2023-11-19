@@ -11,3 +11,31 @@ example) or you can use a model that you created yourself in another course.
 Use a Git repository in which you commit your code and add a Readme file that gives some information on how to use your
 code.
 Deadline for this assignment is 6 December 2021
+
+---
+
+**Note** that you can detach the terminal from the container by adding the `-d` flag to the `docker-compose up` command.
+
+You can train and run the model using the following command:
+
+```shell
+docker-compose up
+```
+
+When you want to retrain the model, you can use the following command:
+
+```shell
+docker-compose up --build train
+```
+
+When you want to run the application, you can use the following command:
+
+```shell
+docker-compose up --build server
+```
+
+You can test the server using the following command: _make sure the server is running_
+
+```shell
+python test.py
+```

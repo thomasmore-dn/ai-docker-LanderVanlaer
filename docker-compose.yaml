@@ -1,13 +1,25 @@
 version: "3"
 
 services:
-  build:
-    container_name: "build"
+  train:
+    container_name: "train"
     build:
       context: .
-      dockerfile: build.Dockerfile
+      dockerfile: train.Dockerfile
     volumes:
       - exports:/app/exports
+  server:
+    container_name: "server"
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    volumes:
+      - exports:/app/imports
+    ports:
+      - "80:8080"
+    depends_on:
+      train:
+        condition: service_completed_successfully
 
 volumes:
   exports:

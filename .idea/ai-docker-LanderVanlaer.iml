@@ -5,4 +5,7 @@
     <orderEntry type="jdk" jdkName="ai-docker-LanderVanlaer" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="server-requirements.txt" />
+  </component>
 </module>

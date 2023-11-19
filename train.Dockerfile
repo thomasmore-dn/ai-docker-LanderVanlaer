@@ -6,7 +6,7 @@ WORKDIR /app
 RUN mkdir -p ./exports
 
 # Install dependencies
-COPY requirements.txt .
+COPY train-requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 COPY train-model.py .
