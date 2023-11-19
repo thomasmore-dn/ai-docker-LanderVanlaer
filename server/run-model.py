@@ -27,6 +27,18 @@ def predict():
     except json.decoder.JSONDecodeError as e:
         return {"error": str(e)}, 400
 
+    if not isinstance(x, list):
+        return {"error": "X must be a list"}, 400
+
+    if len(x) != 64:
+        return {"error": "X must have 64 elements"}, 400
+
+    if not all(isinstance(i, int) for i in x):
+        return {"error": "X must be a list of integers"}, 400
+
+    if not all(0 <= i <= 16 for i in x):
+        return {"error": "X must be a list of integers between 0 and 16"}, 400
+
     y = model.predict([x])[0]
     response = make_response(str(y), 200)
     response.mimetype = "text/plain"
